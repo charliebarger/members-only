@@ -1,7 +1,24 @@
 <%- include("include/_header") -%>
-  <h1>
-    <%= title %>
-  </h1>
-  <p>Welcome to <%= title %>
-  </p>
+  <div class="container p-5">
+    <div class="card mb-3 text-white bg-dark m-auto" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <div>
+            <img
+              src="https://www.theodinproject.com/assets/odin-logo-bd86cf893a3de1f1daceabc1377f58669776616a91ab70c601fd5c16a4686468.svg"
+              alt="">
+          </div>
+
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <%- include("include/_footer") -%>
