@@ -1,0 +1,30 @@
+<%- include("include/_header") -%>
+    <div class="p-4" style="
+    min-height: 100vh;
+    background: rgb(0,212,255);
+    background: linear-gradient(
+-45deg
+, rgba(0,212,255,1) 2%, rgba(215,18,166,1) 80%);">
+        <div class="bg-light container p-4 rounded"
+            style="max-width: 400px;/* background: rgb(0,212,255); *//* background: linear-gradient(-45deg, rgba(0,212,255,1) 2%, rgba(215,18,166,1) 80%); */">
+            <h1>Sign Up</h1>
+            <form>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control shadow-sm" id="exampleInputEmail1"
+                        aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control shadow-sm" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control shadow-sm" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+    <%- include("include/_footer") -%>
