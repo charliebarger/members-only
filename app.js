@@ -8,8 +8,9 @@ var indexRouter = require("./server/routes/index");
 var usersRouter = require("./server/routes/users");
 const adminRouter = require("./server/routes/admin");
 const memberRouter = require("./server/routes/member");
-const signInRouter = require("./server/routes/sign-in");
+const signUpRouter = require("./server/routes/sign-up");
 const messageRouter = require("./server/routes/message");
+const logInRouter = require("./server/routes/log-in");
 
 require("dotenv").config();
 require("./server/models/database");
@@ -29,7 +30,8 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
 app.use("/member", memberRouter);
-app.use("/sign-in", signInRouter);
+app.use("/sign-up", signUpRouter);
+app.use("/log-in", logInRouter);
 app.use("/message", messageRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

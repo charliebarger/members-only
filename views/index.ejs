@@ -1,7 +1,7 @@
 <%- include("include/_header") -%>
   <h1 class="fs-4 p-4">
     <i class="fas fa-exclamation-triangle text-danger"></i>
-    <a href="/sign-in" class="text-decoration-none">Sign Up</a>
+    <a href="/log-in" class="text-decoration-none">Sign Up</a>
     and Become a Member to see Messages
   </h1>
   <div class="container p-5 px-5 py-3">
@@ -15,7 +15,10 @@
         </div>
         <div class="col-md-8">
           <div class="card-body d-flex flex-column h-100">
-            <h5 class="card-title fs-3 py-2 text-sm-start">Card title</h5>
+            <div class="d-flex align-items-center">
+              <h5 class="card-title fs-3 py-2 text-sm-start">Card title</h5>
+              <i class="far fa-trash-alt ms-auto fs-5 p-2 text-danger" style="cursor: pointer;"></i>
+            </div>
             <div>
               <p class="card-text mb-4 blur">This is a wider card with supporting text below as a natural lead-in to
                 additional
