@@ -40,6 +40,16 @@ a {
   filter: blur(4px);
 }
 
+.hidden-text {
+  cursor: default;
+  opacity: 0;
+  transition: 0.75s;
+}
+
+.hidden-text.show {
+  opacity: 1;
+}
+
 @media (min-width: 768px) {
   .avatar-wrapper.small {
     display: none;
