@@ -7,7 +7,6 @@ router.get("/", function (req, res, next) {
   res.render("sign-up", { title: "Express" });
 });
 
-router.use(signUp.validate);
-router.post("/", signUp.createUser);
+router.post("/", signUp.validate(), signUp.createUser);
 
 module.exports = router;
