@@ -1,6 +1,6 @@
 const userDB = require("../models/users");
 require("../models/database");
-const { check, validationResult } = require("express-validator");
+const { check, validationResult, oneOf } = require("express-validator");
 
 exports.createUser = (req, res, next) => {
   try {
@@ -18,13 +18,18 @@ exports.validate = (req, res) => {
   return [
     check("username", "username is required")
       .notEmpty()
+      .isString()
       .isLength({ min: 5, max: 20 })
       .trim(),
-    check("image-url").isDataURI().trim().optional(),
-
-    check("password")
+    check("imageUrl").isString().trim().optional({ checkFalsy: true }),
+    check("password", "password is required")
       .notEmpty()
       .isLength({ min: 5, max: 20 })
-      .custom({ nullable: true }),
+      .custom((value, { req }) => {
+        if (value !== req.body.confirmPassword) {
+          throw new Error("Password confirmation does not match password");
+        }
+        return true;
+      }),
   ];
 };
