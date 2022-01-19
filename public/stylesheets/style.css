@@ -50,6 +50,10 @@ a {
   opacity: 1;
 }
 
+.hide {
+  visibility: hidden;
+}
+
 @media (min-width: 768px) {
   .avatar-wrapper.small {
     display: none;

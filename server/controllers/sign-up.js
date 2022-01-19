@@ -8,7 +8,7 @@ exports.createUser = (req, res, next) => {
     if (!errors.isEmpty()) {
       return res.status(422).jsonp(errors.array());
     }
-    console.log("good");
+    res.redirect("/log-in");
   } catch (error) {
     next(err);
   }

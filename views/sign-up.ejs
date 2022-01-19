@@ -12,6 +12,7 @@
                 <div class="mb-3">
                     <label for="username-input" class="form-label">Username</label>
                     <input class="form-control shadow-sm" type="text" name="username" id="username-input">
+                    <span class="text-danger" id="username-error"></span>
                 </div>
                 <div class="mb-3">
                     <label for="imageUrl" class="form-label">Avatar Image URL</label>
@@ -21,15 +22,17 @@
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control 
-                    shadow-sm" name="password" id="password">
+                    shadow-sm" name="password" id="password" required>
                 </div>
                 <div class="mb-3">
                     <label for="confirmPassword" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control shadow-sm" name="confirmPassword" id=" confirm-password">
+                    <input type="password" class="form-control shadow-sm" name="confirmPassword" id=" confirm-password"
+                        required>
                 </div>
                 <a href="/log-in" class="d-block pb-3 text-decoration-none" href="">Already have an Acount? Sign In</a>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" id="submitSignIn">Submit</button>
             </form>
         </div>
     </div>
+    <script src="/javascripts/formValidation.js"></script>
     <%- include("include/_footer") -%>
