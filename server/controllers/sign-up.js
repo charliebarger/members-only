@@ -1,16 +1,24 @@
 const userDB = require("../models/users");
 require("../models/database");
-const { check, validationResult, oneOf } = require("express-validator");
+const { check, validationResult } = require("express-validator");
 
-exports.createUser = (req, res, next) => {
+exports.createUser = async (req, res, next) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(422).jsonp(errors.array());
     }
+    console.log(req.body);
+    const user = await userDB({
+      username: req.body.username,
+      avatarURL: req.body.imageUrl,
+      password: req.body.password,
+    });
+    console.log(user);
+    await userDB.create(user);
     res.redirect("/log-in");
   } catch (error) {
-    next(err);
+    next(error);
   }
 };
 

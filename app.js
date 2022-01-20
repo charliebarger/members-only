@@ -3,7 +3,8 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-
+require("dotenv").config();
+require("./server/models/database");
 var indexRouter = require("./server/routes/index");
 var usersRouter = require("./server/routes/users");
 const adminRouter = require("./server/routes/admin");
@@ -11,9 +12,6 @@ const memberRouter = require("./server/routes/member");
 const signUpRouter = require("./server/routes/sign-up");
 const messageRouter = require("./server/routes/message");
 const logInRouter = require("./server/routes/log-in");
-
-require("dotenv").config();
-require("./server/models/database");
 var app = express();
 
 // view engine setup
