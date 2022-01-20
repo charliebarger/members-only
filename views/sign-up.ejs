@@ -10,9 +10,10 @@
             <h1>Sign Up</h1>
             <form method="post" action="/sign-up">
                 <div class="mb-3">
-                    <label for="username-input" class="form-label">Username</label>
-                    <input class="form-control shadow-sm" type="text" name="username" id="username-input">
-                    <span class="text-danger" id="username-error"></span>
+                    <label for="username-input" class="form-label">Username<span class="text-danger">*</span>
+                    </label>
+                    <input class="form-control shadow-sm" type="text" name="username" id="username-input" required>
+                    <span class="text-danger py-2" id="username-error"></span>
                 </div>
                 <div class="mb-3">
                     <label for="imageUrl" class="form-label">Avatar Image URL</label>
@@ -20,15 +21,18 @@
                         id="imageUrl" name="imageUrl">
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
+                    <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
                     <input type="password" class="form-control 
                     shadow-sm" name="password" id="password" required>
                 </div>
                 <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <label for="confirmPassword" class="form-label">Confirm Password<span
+                            class="text-danger">*</span></label>
                     <input type="password" class="form-control shadow-sm" name="confirmPassword" id=" confirm-password"
                         required>
+                    <span class="text-danger py-2" id="password-error"></span>
                 </div>
+                <div class="pb-3"><span class="text-danger">*</span>Required field</div>
                 <a href="/log-in" class="d-block pb-3 text-decoration-none" href="">Already have an Acount? Sign In</a>
                 <button type="submit" class="btn btn-primary" id="submitSignIn">Submit</button>
             </form>
