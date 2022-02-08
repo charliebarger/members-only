@@ -7,46 +7,49 @@
 , rgba(0,212,255,1) 2%, rgba(215,18,166,1) 80%);">
         <div class="bg-light container p-4 rounded"
             style="max-width: 400px;/* background: rgb(0,212,255); *//* background: linear-gradient(-45deg, rgba(0,212,255,1) 2%, rgba(215,18,166,1) 80%); */">
-            <!-- <h1 class="text-center">Welcome To the Speakeasy!</h1>
-            <a href="">
-                <div class="w-75 m-auto mt-3">
-                    <img class="img-fluid rounded"
-                        src="https://i1.sndcdn.com/artworks-ubgQjp5sx9zsMgBC-DBEAig-t500x500.jpg" alt="">
-                </div>
-            </a> -->
-            <h1 class="text-center">Become a Member</h1>
-            <p class="text-danger mb-1 mt-4">Click Squares to Reveal Secret Password</p>
-            <div
-                class="d-flex align-items-center justify-content-center p-2 border border-danger border-3 gap-2 mb-4 bg-dark rounded">
-                <div class="p-2 border border-dark bg-white hidden-text-wrapper">
-                    <span class="hidden-text">C</span>
-                </div>
-                <div class="p-2 border border-dark bg-white hidden-text-wrapper">
-                    <span class="hidden-text">A</span>
-                </div>
-                <div class="p-2 border border-dark bg-white hidden-text-wrapper">
-                    <span class="hidden-text">B</span>
-                </div>
-                <div class="p-2 border border-dark bg-white hidden-text-wrapper">
-                    <span class="hidden-text">B</span>
-                </div>
-                <div class="p-2 border border-dark bg-white hidden-text-wrapper">
-                    <span class="hidden-text">A</span>
-                </div>
-                <div class="p-2 border border-dark bg-white hidden-text-wrapper">
-                    <span class="hidden-text">G</span>
-                </div>
-                <div class="p-2 border border-dark bg-white hidden-text-wrapper">
-                    <span class="hidden-text">E</span>
-                </div>
-            </div>
-            <form action="/member" method="post">
-                <div class="mb-3">
-                    <label for="member" class="form-label">Password</label>
-                    <input type="password" name="member" class="form-control shadow-sm" id="member">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            <%if(locals.user.member){%>
+                <h1 class="text-center">Welcome To the Speakeasy!</h1>
+                <a href="">
+                    <div class="w-75 m-auto mt-3">
+                        <img class="img-fluid rounded"
+                            src="https://i1.sndcdn.com/artworks-ubgQjp5sx9zsMgBC-DBEAig-t500x500.jpg" alt="">
+                    </div>
+                </a>
+                <%} else {%>
+                    <h1 class="text-center">Become a Member</h1>
+                    <p class="text-danger mb-1 mt-4">Click Squares to Reveal Secret Password</p>
+                    <div
+                        class="d-flex align-items-center justify-content-center p-2 border border-danger border-3 gap-2 mb-4 bg-dark rounded">
+                        <div class="p-2 border border-dark bg-white hidden-text-wrapper">
+                            <span class="hidden-text">C</span>
+                        </div>
+                        <div class="p-2 border border-dark bg-white hidden-text-wrapper">
+                            <span class="hidden-text">A</span>
+                        </div>
+                        <div class="p-2 border border-dark bg-white hidden-text-wrapper">
+                            <span class="hidden-text">B</span>
+                        </div>
+                        <div class="p-2 border border-dark bg-white hidden-text-wrapper">
+                            <span class="hidden-text">B</span>
+                        </div>
+                        <div class="p-2 border border-dark bg-white hidden-text-wrapper">
+                            <span class="hidden-text">A</span>
+                        </div>
+                        <div class="p-2 border border-dark bg-white hidden-text-wrapper">
+                            <span class="hidden-text">G</span>
+                        </div>
+                        <div class="p-2 border border-dark bg-white hidden-text-wrapper">
+                            <span class="hidden-text">E</span>
+                        </div>
+                    </div>
+                    <form action="/member" method="post">
+                        <div class="mb-3">
+                            <label for="member" class="form-label">Password</label>
+                            <input type="password" name="member" class="form-control shadow-sm" id="member">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                    <%}%>
         </div>
     </div>
     <%- include("include/_footer") -%>

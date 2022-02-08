@@ -2,13 +2,14 @@ const userDB = require("../models/users");
 require("../models/database");
 const ObjectId = require("mongodb").ObjectId;
 
-exports.updateMembershipStatus = async (req, res, next) => {
+exports.updateAdminStatus = async (req, res, next) => {
   try {
-    if (req.body.member.toLowerCase() === process.env.memberPassword) {
+    console.log("hereee");
+    if (req.body.admin === process.env.adminPassword) {
       await userDB.findByIdAndUpdate(ObjectId(req.user._id), {
-        $set: { member: true },
+        $set: { admin: true },
       });
-      req.user.member = true;
+      req.user.admin = true;
       res.redirect("/");
     } else {
       console.log("didnt match");

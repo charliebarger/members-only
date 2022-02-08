@@ -17,8 +17,13 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-2 sticky-top"">
         <div class=" container-fluid">
         <a class="navbar-brand" href="/">
-            <span>The Speakeasy</span>
-            <i class="fas fa-glass-martini" style="color: rgba(215,18,166,1);"></i>
+            <%if(locals.user){%>
+                <span>The Speakeasy</span>
+                <i class="fas fa-glass-martini" style="color: rgba(215,18,166,1);"></i>
+                <%} else {%>
+                    <span>Hardware Store</span>
+                    <i class="fas fa-hammer"></i>
+                    <%}%>
         </a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
             aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
