@@ -3,7 +3,7 @@
 
 <head>
     <title>
-        Members Only
+        <%= user ? user.username : "express" %>
     </title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,34 +27,37 @@
         <div class="navbar-collapse collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto me-lg-0
                 ms-lg-auto mb-2 mb-lg-0">
-                <li class="nav-item my-1 my-lg-0">
-                    <a href="/log-in" class="btn btn-outline-light me-2">Login</a>
-                </li>
-                <li class="nav-item my-1 my-lg-0">
-                    <a href="/sign-up" class="btn btn-warning">Sign-up</a>
-                </li>
-                <!-- <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
-                    <a href="/message" class="text-decoration-none text-white 
+                <%if(!user){%>
+                    <li class="nav-item my-1 my-lg-0">
+                        <a href="/log-in" class="btn btn-outline-light me-2">Login</a>
+                    </li>
+                    <li class="nav-item my-1 my-lg-0">
+                        <a href="/sign-up" class="btn btn-warning">Sign-up</a>
+                    </li>
+                    <%}else {%>
+                        <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
+                            <a href="/message" class="text-decoration-none text-white 
                     d-flex align-items-center">
-                        <i class="fas fa-envelope text-success fs-5"></i>
-                        <span class="ms-2">Create Message</span>
-                    </a>
-                </li>
-                <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
-                    <a href="member" class="text-decoration-none text-white d-flex align-items-center">
-                        <i class="fas fa-heart fs-5 text-danger"></i>
-                        <span class="ms-2">Become Member</span>
-                    </a>
-                </li>
-                <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
-                    <a href="admin" class="text-decoration-none text-white d-flex align-items-center">
-                        <i class="fab fa-keycdn text-warning fs-5"></i>
-                        <span class="ms-2">Become Admin</span>
-                    </a>
-                </li>
-                <li class="nav-item my-2 my-lg-0 text-light">
-                    <a type="button" class="btn btn-warning">Sign-Out</a>
-                </li> -->
+                                <i class="fas fa-envelope text-success fs-5"></i>
+                                <span class="ms-2">Create Message</span>
+                            </a>
+                        </li>
+                        <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
+                            <a href="member" class="text-decoration-none text-white d-flex align-items-center">
+                                <i class="fas fa-heart fs-5 text-danger"></i>
+                                <span class="ms-2">Become Member</span>
+                            </a>
+                        </li>
+                        <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
+                            <a href="admin" class="text-decoration-none text-white d-flex align-items-center">
+                                <i class="fab fa-keycdn text-warning fs-5"></i>
+                                <span class="ms-2">Become Admin</span>
+                            </a>
+                        </li>
+                        <li class="nav-item my-2 my-lg-0 text-light">
+                            <a type="button" class="btn btn-warning">Sign-Out</a>
+                        </li>
+                        <%}%>
             </ul>
         </div>
         </div>
