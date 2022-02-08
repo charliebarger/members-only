@@ -3,7 +3,7 @@
 
 <head>
     <title>
-        <%= user ? user.username : "express" %>
+        <%= locals.user ? locals.user.username : "Express" %>
     </title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +27,7 @@
         <div class="navbar-collapse collapse" id="navbarColor01">
             <ul class="navbar-nav me-auto me-lg-0
                 ms-lg-auto mb-2 mb-lg-0">
-                <%if(!user){%>
+                <%if(!locals.user){%>
                     <li class="nav-item my-1 my-lg-0">
                         <a href="/log-in" class="btn btn-outline-light me-2">Login</a>
                     </li>
@@ -55,7 +55,7 @@
                             </a>
                         </li>
                         <li class="nav-item my-2 my-lg-0 text-light">
-                            <a type="button" class="btn btn-warning">Sign-Out</a>
+                            <a type="button" href="/log-out" class="btn btn-warning">Sign-Out</a>
                         </li>
                         <%}%>
             </ul>

@@ -6,9 +6,9 @@ const passport = require("passport");
 
 router.get("/", function (req, res, next) {
   if (req.isAuthenticated()) {
-    console.log("hello");
+    console.log(req.user);
   }
-  res.render("log-in", { user: "" });
+  res.render("log-in");
 });
 
 router.post(

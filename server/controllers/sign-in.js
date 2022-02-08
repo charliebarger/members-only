@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const res = require("express/lib/response");
 const passport = require("passport");
 const userDB = require("../models/users");
 require("../models/database");
@@ -15,7 +16,6 @@ passport.use(
       try {
         const match = bcrypt.compareSync(password, user.password);
         if (match) {
-          console.log(user);
           return done(null, user);
         } else {
           return done(null, false, { message: "Incorrect password" });

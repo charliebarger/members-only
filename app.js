@@ -40,7 +40,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-//check for log in
+// add user to locals
+app.use(function (req, res, next) {
+  res.locals.user = req.user ? req.user : "";
+  next();
+});
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
