@@ -36,10 +36,6 @@ a {
   margin-right: 0.5rem;
 }
 
-.blur {
-  filter: blur(4px);
-}
-
 .hidden-text {
   cursor: default;
   opacity: 0;
@@ -52,6 +48,23 @@ a {
 
 .hide {
   visibility: hidden;
+}
+
+.blur {
+  filter: blur(4px);
+}
+
+.reveal {
+  animation: reveal 2s ease-in-out forwards;
+}
+
+@keyframes reveal {
+  0% {
+    filter: blur(4px);
+  }
+  100% {
+    filter: blur(0px);
+  }
 }
 
 @media (min-width: 768px) {
