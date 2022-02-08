@@ -14,6 +14,14 @@ const userSchema = new mongoose.Schema({
     required: "this field is required",
     maxlength: 20,
   },
+  member: {
+    type: Boolean,
+    default: false,
+  },
+  admin: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 userSchema.pre("save", async function (next) {

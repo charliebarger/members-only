@@ -39,5 +39,7 @@ exports.validate = (req, res) => {
         }
         return true;
       }),
+    check("member").isBoolean().optional({ checkFalsy: true }),
+    check("admin").isBoolean().optional({ checkFalsy: true }),
   ];
 };
