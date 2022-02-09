@@ -15,6 +15,7 @@ const signUpRouter = require("./server/routes/sign-up");
 const messageRouter = require("./server/routes/message");
 const logInRouter = require("./server/routes/log-in");
 const logOutrouter = require("./server/routes/log-out");
+const flash = require("express-flash");
 var app = express();
 
 // view engine setup
@@ -38,6 +39,7 @@ app.use(
 
 //passport
 app.use(passport.initialize());
+app.use(flash());
 app.use(passport.session());
 
 // add user to locals

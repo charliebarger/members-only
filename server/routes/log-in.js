@@ -6,7 +6,7 @@ const passport = require("passport");
 
 router.get("/", function (req, res, next) {
   if (req.isAuthenticated()) {
-    console.log(req.user);
+    console.log("partygoi");
   }
   res.render("log-in");
 });
@@ -14,8 +14,9 @@ router.get("/", function (req, res, next) {
 router.post(
   "/",
   passport.authenticate("local", {
+    failureFlash: true,
     successRedirect: "/",
-    failureRedirect: "/log-in?error=true",
+    failureRedirect: "/log-in",
   })
 );
 

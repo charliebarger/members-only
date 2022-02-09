@@ -19,7 +19,12 @@
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input type="password" class="form-control shadow-sm" name="password" id="exampleInputPassword1">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <%if(messages.error){%>
+                    <p class="text-danger">
+                        <%=messages.error%>
+                    </p>
+                    <%}%>
+                        <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>

@@ -4,6 +4,7 @@ const passport = require("passport");
 const userDB = require("../models/users");
 require("../models/database");
 var LocalStrategy = require("passport-local").Strategy;
+const { check, validationResult } = require("express-validator");
 passport.use(
   new LocalStrategy((username, password, done) => {
     userDB.findOne({ username: username }, (err, user) => {
@@ -11,14 +12,18 @@ passport.use(
         return done(err);
       }
       if (!user) {
-        return done(null, false, { message: "Incorrect username" });
+        return done(null, false, {
+          message: "Password or Username is Incorrect",
+        });
       }
       try {
         const match = bcrypt.compareSync(password, user.password);
         if (match) {
           return done(null, user);
         } else {
-          return done(null, false, { message: "Incorrect password" });
+          return done(null, false, {
+            message: "Password or Username is Incorrect",
+          });
         }
       } catch (error) {
         return done(err);
@@ -36,3 +41,18 @@ passport.deserializeUser(function (id, done) {
     done(err, user);
   });
 });
+
+//validator
+exports.validate = (req, res) => {
+  return [
+    check("username", "username is required").notEmpty(),
+    check("password", "password is required")
+      .notEmpty()
+      .custom((value, { req }) => {
+        if (value !== req.body.confirmPassword) {
+          throw new Error("Password confirmation does not match password");
+        }
+        return true;
+      }),
+  ];
+};
