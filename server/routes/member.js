@@ -3,7 +3,9 @@ var router = express.Router();
 const becomeMember = require("../controllers/becomeMember");
 /* GET users listing. */
 router.get("/", function (req, res, next) {
-  res.render("member-log-in");
+  if (req.user) {
+    res.render("member-log-in");
+  }
 });
 
 router.post("/", becomeMember.validate(), becomeMember.updateMembershipStatus);
