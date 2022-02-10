@@ -5,7 +5,10 @@ const { check, validationResult } = require("express-validator");
 
 exports.updateAdminStatus = async (req, res, next) => {
   try {
-    console.log("hereee");
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.status(422).jsonp(errors.array());
+    }
     if (req.body.admin === process.env.adminPassword) {
       await userDB.findByIdAndUpdate(ObjectId(req.user._id), {
         $set: { admin: true },
