@@ -45,14 +45,7 @@ passport.deserializeUser(function (id, done) {
 //validator
 exports.validate = (req, res) => {
   return [
-    check("username", "username is required").notEmpty(),
-    check("password", "password is required")
-      .notEmpty()
-      .custom((value, { req }) => {
-        if (value !== req.body.confirmPassword) {
-          throw new Error("Password confirmation does not match password");
-        }
-        return true;
-      }),
+    check("username", "username is required").notEmpty().isString(),
+    check("password", "password is required").notEmpty().isString(),
   ];
 };

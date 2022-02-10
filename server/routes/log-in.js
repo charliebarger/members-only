@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-require("../controllers/sign-in");
+const signIn = require("../controllers/sign-in");
 const passport = require("passport");
 /* GET users listing. */
 
@@ -13,6 +13,7 @@ router.get("/", function (req, res, next) {
 
 router.post(
   "/",
+  signIn.validate(),
   passport.authenticate("local", {
     failureFlash: true,
     successRedirect: "/",
