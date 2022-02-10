@@ -9,5 +9,3 @@ const connection = mongoose.connection;
 connection.on("error", () => console.log("connection error"));
 
 connection.on("open", () => console.log("connected"));
-
-exports.connection = connection;
