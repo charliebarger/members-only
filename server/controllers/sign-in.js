@@ -58,3 +58,13 @@ exports.validate = (req, res) => {
     check("password", "password is required").notEmpty().isString(),
   ];
 };
+
+//check validation
+
+exports.checkValidation = (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.status(422).jsonp(errors.array());
+  }
+  next();
+};
