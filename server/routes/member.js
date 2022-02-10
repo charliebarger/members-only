@@ -3,8 +3,9 @@ var router = express.Router();
 const becomeMember = require("../controllers/becomeMember");
 /* GET users listing. */
 router.get("/", function (req, res, next) {
-  if (req.user) {
-    res.render("member-log-in");
+  console.log("here");
+  if (req.isAuthenticated()) {
+    res.render("member-log-in", { msg: req.flash("msg") });
   } else {
     next();
   }

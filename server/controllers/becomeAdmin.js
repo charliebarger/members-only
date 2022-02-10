@@ -7,7 +7,7 @@ exports.updateAdminStatus = async (req, res, next) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      res.status(422).jsonp(errors.array());
+      return res.status(422).jsonp(errors.array());
     }
     if (req.body.admin === process.env.adminPassword) {
       await userDB.findByIdAndUpdate(ObjectId(req.user._id), {
@@ -16,8 +16,8 @@ exports.updateAdminStatus = async (req, res, next) => {
       req.user.admin = true;
       res.redirect("/");
     } else {
+      req.flash("msg", "Wrong Password");
       res.redirect("/admin");
-      console.log("didnt match");
     }
   } catch (error) {
     console.log(error);

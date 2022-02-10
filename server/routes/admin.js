@@ -3,8 +3,8 @@ var router = express.Router();
 const becomeAdmin = require("../controllers/becomeAdmin");
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  if (req.user) {
-    res.render("admin-log-in", { title: "Express" });
+  if (req.isAuthenticated()) {
+    res.render("admin-log-in", { msg: req.flash("msg") });
   } else {
     next();
   }

@@ -47,7 +47,12 @@
                             <label for="member" class="form-label">Password</label>
                             <input required type="password" name="member" class="form-control shadow-sm" id="member">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <%if(msg){%>
+                            <p class="text-danger">
+                                <%=msg%>
+                            </p>
+                            <%}%>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                     <%}%>
         </div>

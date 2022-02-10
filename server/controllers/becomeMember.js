@@ -16,7 +16,7 @@ exports.updateMembershipStatus = async (req, res, next) => {
       req.user.member = true;
       res.redirect("/");
     } else {
-      req.flash("message");
+      req.flash("msg", "Wrong Password");
       res.redirect("/member");
     }
   } catch (error) {
