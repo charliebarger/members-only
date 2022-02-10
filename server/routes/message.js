@@ -5,8 +5,9 @@ var router = express.Router();
 router.get("/", function (req, res, next) {
   if (req.user) {
     res.render("create-message", { title: "Express" });
+  } else {
+    next();
   }
-  next();
 });
 
 module.exports = router;

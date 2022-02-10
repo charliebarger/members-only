@@ -5,8 +5,9 @@ const becomeAdmin = require("../controllers/becomeAdmin");
 router.get("/", function (req, res, next) {
   if (req.user) {
     res.render("admin-log-in", { title: "Express" });
+  } else {
+    next();
   }
-  next();
 });
 
 router.post("/", becomeAdmin.validate(), becomeAdmin.updateAdminStatus);

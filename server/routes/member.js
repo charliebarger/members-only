@@ -5,8 +5,9 @@ const becomeMember = require("../controllers/becomeMember");
 router.get("/", function (req, res, next) {
   if (req.user) {
     res.render("member-log-in");
+  } else {
+    next();
   }
-  next();
 });
 
 router.post("/", becomeMember.validate(), becomeMember.updateMembershipStatus);
