@@ -46,6 +46,10 @@ passport.deserializeUser(function (id, done) {
 exports.authenticate = (req, res) => {
   return passport.authenticate("local", {
     failureFlash: true,
+    successFlash: {
+      type: "success",
+      message: "Successfully signed up.",
+    },
     successRedirect: "/",
     failureRedirect: "/log-in",
   });
