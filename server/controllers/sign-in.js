@@ -42,6 +42,15 @@ passport.deserializeUser(function (id, done) {
   });
 });
 
+//authenticate
+exports.authenticate = (req, res) => {
+  return passport.authenticate("local", {
+    failureFlash: true,
+    successRedirect: "/",
+    failureRedirect: "/log-in",
+  });
+};
+
 //validator
 exports.validate = (req, res) => {
   return [

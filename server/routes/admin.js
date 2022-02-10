@@ -9,6 +9,6 @@ router.get("/", function (req, res, next) {
   next();
 });
 
-router.post("/", becomeAdmin.updateAdminStatus);
+router.post("/", becomeAdmin.validate(), becomeAdmin.updateAdminStatus);
 
 module.exports = router;

@@ -12,6 +12,7 @@ exports.updateMembershipStatus = async (req, res, next) => {
       req.user.member = true;
       res.redirect("/");
     } else {
+      res.redirect("/member");
       console.log("didnt match");
     }
   } catch (error) {
