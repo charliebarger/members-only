@@ -30,7 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 //create session
-const connection = database.connection;
+
 app.use(
   session({
     secret: process.env.SECRET,

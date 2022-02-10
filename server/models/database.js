@@ -4,8 +4,10 @@ mongoose.connect(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
 });
 
-const db = mongoose.connection;
+const connection = mongoose.connection;
 
-db.on("error", () => console.log("connection error"));
+connection.on("error", () => console.log("connection error"));
 
-db.on("open", () => console.log("connected"));
+connection.on("open", () => console.log("connected"));
+
+exports.connection = connection;
