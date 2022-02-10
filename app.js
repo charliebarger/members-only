@@ -47,7 +47,6 @@ app.use(passport.session());
 
 // add user to locals
 app.use(function (req, res, next) {
-  console.log(req.user);
   res.locals.user = req.user ? req.user : "";
   next();
 });

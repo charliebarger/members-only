@@ -8,13 +8,11 @@ exports.createUser = async (req, res, next) => {
     if (!errors.isEmpty()) {
       return res.status(422).jsonp(errors.array());
     }
-    console.log(req.body);
     const user = await userDB({
       username: req.body.username,
       avatarURL: req.body.imageUrl,
       password: req.body.password,
     });
-    console.log(user);
     await userDB.create(user);
     res.redirect("/log-in");
   } catch (error) {
