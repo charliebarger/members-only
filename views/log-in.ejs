@@ -11,13 +11,14 @@
             <form method="post" action="/log-in">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input class="form-control shadow-sm" name="username" id="exampleInputEmail1"
+                    <input required class="form-control shadow-sm" name="username" id="exampleInputEmail1"
                         aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text"></div>
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control shadow-sm" name="password" id="exampleInputPassword1">
+                    <input type="password" required class="form-control shadow-sm" name="password"
+                        id="exampleInputPassword1">
                 </div>
                 <%if(messages.error){%>
                     <p class="text-danger">
