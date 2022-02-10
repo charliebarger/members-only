@@ -4,9 +4,10 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 require("dotenv").config();
-require("./server/models/database");
+const database = require("./server/models/database");
 const session = require("express-session");
 const passport = require("passport");
+const MongoStore = require("connect-mongo");
 var indexRouter = require("./server/routes/index");
 var usersRouter = require("./server/routes/users");
 const adminRouter = require("./server/routes/admin");
@@ -29,11 +30,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 //create session
+const connection = database.connection;
 app.use(
   session({
     secret: process.env.SECRET,
-    resave: false,
+    resave: true,
     saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
   })
 );
 
