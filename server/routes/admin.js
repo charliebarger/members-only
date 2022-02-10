@@ -3,7 +3,10 @@ var router = express.Router();
 const becomeAdmin = require("../controllers/becomeAdmin");
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("admin-log-in", { title: "Express" });
+  if (req.user) {
+    res.render("admin-log-in", { title: "Express" });
+  }
+  next();
 });
 
 router.post("/", becomeAdmin.updateAdminStatus);

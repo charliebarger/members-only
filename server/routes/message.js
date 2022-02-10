@@ -3,7 +3,10 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
-  res.render("create-message", { title: "Express" });
+  if (req.user) {
+    res.render("create-message", { title: "Express" });
+  }
+  next();
 });
 
 module.exports = router;
