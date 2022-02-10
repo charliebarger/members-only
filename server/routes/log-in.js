@@ -6,9 +6,10 @@ const passport = require("passport");
 
 router.get("/", function (req, res, next) {
   if (req.isAuthenticated()) {
-    console.log("partygoi");
+    next();
+  } else {
+    res.render("log-in");
   }
-  res.render("log-in");
 });
 
 router.post(
