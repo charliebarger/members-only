@@ -6,6 +6,6 @@ router.get("/", function (req, res, next) {
   res.render("member-log-in");
 });
 
-router.post("/", becomeMember.updateMembershipStatus);
+router.post("/", becomeMember.validate(), becomeMember.updateMembershipStatus);
 
 module.exports = router;
