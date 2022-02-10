@@ -3,7 +3,9 @@
     <h1 class="fs-4 p-4">
       <i class="fas fa-exclamation-triangle text-danger"></i>
       <%if(!locals.user){%>
-        <a href="/log-in" class="text-decoration-none">Sign Up</a>
+        <a href="/sign-up" class="text-decoration-none">Sign Up</a>
+        <span>or</span>
+        <a href="/log-in" class="text-decoration-none">Log In</a>
         <span>and Become a Member to see Messages</span>
         <%} else if(!locals.user.member){ %>
           <a href="/member" class="text-decoration-none">Become a Member</a>
