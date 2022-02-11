@@ -1,7 +1,7 @@
 <%- include("include/_header") -%>
   <%if(messages.success){%>
     <p class="text-danger">
-      <%=messages.success%>
+      <%=locals.user.username%>
     </p>
     <%}%>
       <%if(!locals.user || !locals.user.member){%>
