@@ -67,8 +67,17 @@ a {
   }
 }
 
+.round-img-wrapper {
+  height: 50px;
+  width: 50px;
+}
+.round-img-wrapper > img {
+  height: 100%;
+  width: 100%;
+}
+
 @media (min-width: 768px) {
-  .avatar-wrapper.small {
+  .avatar-wrapper.small:not(.always) {
     display: none;
   }
 
