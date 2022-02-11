@@ -20,13 +20,16 @@
           <div class="d-flex align-items-center justify-content-center fs-3">
             <span>&nbsp</span>
             <div class="avatar-wrapper small always me-1">
-              <div class="avatar small">
+              <div class="avatar small" style="background-image: 
+                url(
+                <%=user.avatarURL%>); background-color: white;
+                ">
               </div>
             </div>
             <span>
               <%=user.username%>
             </span>
-            <span class="text-dark">!</span>
+            <span class=" text-dark">!</span>
           </div>
         </div>
         <%}%>
