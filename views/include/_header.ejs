@@ -51,13 +51,17 @@
                         <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
                             <a href="member" class="text-decoration-none text-white d-flex align-items-center">
                                 <i class="fas fa-heart fs-5 text-danger"></i>
-                                <span class="ms-2">Become Member</span>
+                                <span class="ms-2">
+                                    <%= locals.user.member ? "" : "Become " %>Member
+                                </span>
                             </a>
                         </li>
                         <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
                             <a href="admin" class="text-decoration-none text-white d-flex align-items-center">
                                 <i class="fab fa-keycdn text-warning fs-5"></i>
-                                <span class="ms-2">Become Admin</span>
+                                <span class="ms-2">
+                                    <%= locals.user.admin ? "" : "Become " %>Admin
+                                </span>
                             </a>
                         </li>
                         <li class="nav-item my-2 my-lg-0 text-light">
