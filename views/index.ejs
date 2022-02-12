@@ -67,13 +67,11 @@
                         </div>
                         <div>
                           <p class="card-text mb-4 <%=locals.user ? messages.success ? " reveal" : "show" : " blur" %>
-                            ">This is a wider card with
-                            supporting
-                            text
-                            below
-                            as a natural lead-in to
-                            additional
-                            content. This content is a little bit longer.
+                            ">
+                            <%= locals.user
+                              ? 'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
+                              : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur laboriosam optio nisi vitae molestiae distinctio voluptatum blanditiis voluptate quis dignissimos.'
+                              %>
                           </p>
                         </div>
                         <div
@@ -90,7 +88,9 @@
                 background-color: none;
             ">
                               <strong class='<%=locals.user ? messages.success ? " reveal" : "show" : " blur"
-                                %>'>kennypowers69</strong>
+                                %>'>
+                                <%= locals.user ? 'kennyPowers420' : 'hadwareStoreGuy420' %>
+                              </strong>
                             </div>
                           </div>
                           <small class="my-1 ps-2 text-muted">Last updated 3 mins ago</small>
@@ -111,10 +111,8 @@
                       <div class="card-body d-flex flex-column h-100">
                         <h5 class="card-title fs-3 py-2 text-sm-start">Card title</h5>
                         <div>
-                          <p class="card-text mb-4">This is a wider card with supporting text below as a natural lead-in
-                            to
-                            additional
-                            content. This content is a little bit longer.
+                          <p class="card-text mb-4">
+                            text
                           </p>
                         </div>
                         <div
