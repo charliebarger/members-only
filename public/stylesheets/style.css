@@ -68,7 +68,7 @@ a {
 }
 
 .beat {
-  animation: beat 1s alternate infinite ease-in-out;
+  animation: beat s alternate infinite ease-in-out;
 }
 
 /* keyframes */
