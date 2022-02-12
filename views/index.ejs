@@ -14,8 +14,9 @@
     </h1>
     <% }%>
       <%if(messages.success){%>
-        <div class="text-center p-4 bg-warning lh-large d-flex flex-wrap align-items-center justify-content-center"
-          style="color: rgba(215,18,166,1); row-gap: .25rem;">
+        <div class=" text-center p-4 bg-warning lh-large d-flex flex-wrap align-items-center justify-content-center
+        <%= locals.user.member ? 'my-3' : 'my-0' %>
+        " style="color: rgba(215,18,166,1); row-gap: .25rem;">
           <h2 class="text-dark m-0 fs-3">Welcome to the Speakeasy</h2>
           <div class="d-flex align-items-center justify-content-center fs-3">
             <span>&nbsp</span>
@@ -33,94 +34,105 @@
           </div>
         </div>
         <%}%>
-          <div class=" container p-5 px-5 py-3">
-            <div class="card mb-3 text-white bg-dark m-auto" style="max-width: 540px;">
-              <div class="row g-0">
-                <div class="col-md-4 p-3 d-md-flex align-items-center image-section">
-                  <div class="avatar-wrapper big">
-                    <div class="avatar big">
+          <%if(msg !="" ){%>
+            <h1 class="fs-4 p-4">
+              <i class="fas fa-heart fs-5 text-danger beat"></i>
+              <span>
+                <%=msg%>
+              </span>
+              <span>Write Your First</span>
+              <a href="/message" class="text-decoration-none">Message!</a>
+
+            </h1>
+            <%}%>
+              <div class=" container p-5 px-5 py-3">
+                <div class="card mb-3 text-white bg-dark m-auto" style="max-width: 540px;">
+                  <div class="row g-0">
+                    <div class="col-md-4 p-3 d-md-flex align-items-center image-section">
+                      <div class="avatar-wrapper big">
+                        <div class="avatar big">
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body d-flex flex-column h-100">
-                    <div class="d-flex align-items-center">
-                      <h5 class="card-title fs-3 py-2 text-sm-start">Card title</h5>
-                      <%if(locals.user.admin){%>
-                        <i class="far fa-trash-alt ms-auto fs-5 p-2 text-danger" style="cursor: pointer;"></i>
-                        <%}%>
-                    </div>
-                    <div>
-                      <p class="card-text mb-4 <%=locals.user ? " reveal" : " blur" %>">This is a wider card with
-                        supporting
-                        text
-                        below
-                        as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.
-                      </p>
-                    </div>
-                    <div
-                      class="align-items-center border border-bottom-0 border-end-0 border-secondary border-start-0 card-text d-flex flex-wrap justify-content-between mt-auto mt-autp pt-2">
-                      <div class="align-items-center d-flex my-2 flex-wrap gap-1" style="
+                    <div class="col-md-8">
+                      <div class="card-body d-flex flex-column h-100">
+                        <div class="d-flex align-items-center">
+                          <h5 class="card-title fs-3 py-2 text-sm-start">Card title</h5>
+                          <%if(locals.user.admin){%>
+                            <i class="far fa-trash-alt ms-auto fs-5 p-2 text-danger" style="cursor: pointer;"></i>
+                            <%}%>
+                        </div>
+                        <div>
+                          <p class="card-text mb-4 <%=locals.user ? " reveal" : " blur" %>">This is a wider card with
+                            supporting
+                            text
+                            below
+                            as a natural lead-in to
+                            additional
+                            content. This content is a little bit longer.
+                          </p>
+                        </div>
+                        <div
+                          class="align-items-center border border-bottom-0 border-end-0 border-secondary border-start-0 card-text d-flex flex-wrap justify-content-between mt-auto mt-autp pt-2">
+                          <div class="align-items-center d-flex my-2 flex-wrap gap-1" style="
                 /* margin: 2rem; */
             ">
-                        <div class="avatar-wrapper small">
-                          <div class="avatar small">
-                          </div>
-                        </div>
-                        <div class="bg-danger fw-light my-1 px-3 py-2 rounded-pill" style="
+                            <div class="avatar-wrapper small">
+                              <div class="avatar small">
+                              </div>
+                            </div>
+                            <div class="bg-danger fw-light my-1 px-3 py-2 rounded-pill" style="
                 /* color: red; */
                 background-color: none;
             ">
-                          <strong>kennypowers69</strong>
+                              <strong>kennypowers69</strong>
+                            </div>
+                          </div>
+                          <small class="my-1 ps-2 text-muted">Last updated 3 mins ago</small>
                         </div>
                       </div>
-                      <small class="my-1 ps-2 text-muted">Last updated 3 mins ago</small>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="card mb-3 text-white bg-dark m-auto" style="max-width: 540px;">
-              <div class="row g-0">
-                <div class="col-md-4 p-3 d-md-flex align-items-center image-section">
-                  <div class="avatar-wrapper big">
-                    <div class="avatar big">
+                <div class="card mb-3 text-white bg-dark m-auto" style="max-width: 540px;">
+                  <div class="row g-0">
+                    <div class="col-md-4 p-3 d-md-flex align-items-center image-section">
+                      <div class="avatar-wrapper big">
+                        <div class="avatar big">
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body d-flex flex-column h-100">
-                    <h5 class="card-title fs-3 py-2 text-sm-start">Card title</h5>
-                    <div>
-                      <p class="card-text mb-4">This is a wider card with supporting text below as a natural lead-in
-                        to
-                        additional
-                        content. This content is a little bit longer.
-                      </p>
-                    </div>
-                    <div
-                      class="align-items-center border border-bottom-0 border-end-0 border-secondary border-start-0 card-text d-flex flex-wrap justify-content-between mt-auto mt-autp pt-2">
-                      <div class="align-items-center d-flex my-2 flex-wrap gap-1" style="
+                    <div class="col-md-8">
+                      <div class="card-body d-flex flex-column h-100">
+                        <h5 class="card-title fs-3 py-2 text-sm-start">Card title</h5>
+                        <div>
+                          <p class="card-text mb-4">This is a wider card with supporting text below as a natural lead-in
+                            to
+                            additional
+                            content. This content is a little bit longer.
+                          </p>
+                        </div>
+                        <div
+                          class="align-items-center border border-bottom-0 border-end-0 border-secondary border-start-0 card-text d-flex flex-wrap justify-content-between mt-auto mt-autp pt-2">
+                          <div class="align-items-center d-flex my-2 flex-wrap gap-1" style="
                     /* margin: 2rem; */
                 ">
-                        <div class="avatar-wrapper small">
-                          <div class="avatar small">
-                          </div>
-                        </div>
-                        <div class="bg-danger fw-light my-1 px-3 py-2 rounded-pill" style="
+                            <div class="avatar-wrapper small">
+                              <div class="avatar small">
+                              </div>
+                            </div>
+                            <div class="bg-danger fw-light my-1 px-3 py-2 rounded-pill" style="
                     /* color: red; */
                     background-color: none;
                 ">
-                          <strong>kennypowers69</strong>
+                              <strong>kennypowers69</strong>
+                            </div>
+                          </div>
+                          <small class="my-1 ps-2 text-muted">Last updated 3 mins ago</small>
                         </div>
                       </div>
-                      <small class="my-1 ps-2 text-muted">Last updated 3 mins ago</small>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <%- include("include/_footer") -%>
+              <%- include("include/_footer") -%>

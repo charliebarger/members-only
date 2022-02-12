@@ -58,6 +58,20 @@ a {
   animation: reveal 2s ease-in-out forwards;
 }
 
+.round-img-wrapper {
+  height: 50px;
+  width: 50px;
+}
+.round-img-wrapper > img {
+  height: 100%;
+  width: 100%;
+}
+
+.beat {
+  animation: beat 1s alternate infinite ease-in-out;
+}
+
+/* keyframes */
 @keyframes reveal {
   0% {
     filter: blur(4px);
@@ -67,13 +81,13 @@ a {
   }
 }
 
-.round-img-wrapper {
-  height: 50px;
-  width: 50px;
-}
-.round-img-wrapper > img {
-  height: 100%;
-  width: 100%;
+@keyframes beat {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1.5);
+  }
 }
 
 @media (min-width: 768px) {
