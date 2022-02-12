@@ -14,6 +14,7 @@ exports.updateMembershipStatus = async (req, res, next) => {
         $set: { member: true },
       });
       req.user.member = true;
+      req.flash("msg", "Congrats Member!");
       res.redirect("/");
     } else {
       req.flash("msg", "Wrong Password");
