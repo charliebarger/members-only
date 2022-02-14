@@ -16,7 +16,7 @@ const messageSchema = new mongoose.Schema({
   },
   timestamp: {
     type: Date,
-    default: DateTime.now(),
+    default: Date.now,
     required: "this field is required",
   },
 });
@@ -24,7 +24,7 @@ const messageSchema = new mongoose.Schema({
 DateTime.now().toLocaleString(DateTime.DATETIME_FULL);
 
 messageSchema.virtual("date").get(function () {
-  return this.timestamp
+  return DateTime.fromJSDate(this.timestamp)
     .toLocaleString(DateTime.DATETIME_SHORT)
     .replace(",", " |");
 });
