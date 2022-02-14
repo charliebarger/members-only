@@ -21,8 +21,6 @@ const messageSchema = new mongoose.Schema({
   },
 });
 
-DateTime.now().toLocaleString(DateTime.DATETIME_FULL);
-
 messageSchema.virtual("date").get(function () {
   return DateTime.fromJSDate(this.timestamp)
     .toLocaleString(DateTime.DATETIME_SHORT)
