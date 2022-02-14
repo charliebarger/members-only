@@ -16,6 +16,7 @@ exports.createMessage = async (req, res, next) => {
         body: req.body.messageBody,
       });
       await messageDB.create(user);
+      console.log(user.date);
       res.redirect("/");
     } catch (error) {
       next(error);

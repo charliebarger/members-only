@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const { DateTime } = require("luxon");
 const messageSchema = new mongoose.Schema({
   user: {
     type: mongoose.SchemaTypes.ObjectId,
@@ -16,9 +16,17 @@ const messageSchema = new mongoose.Schema({
   },
   timestamp: {
     type: Date,
-    default: Date.now,
+    default: DateTime.now(),
     required: "this field is required",
   },
+});
+
+DateTime.now().toLocaleString(DateTime.DATETIME_FULL);
+
+messageSchema.virtual("date").get(function () {
+  return this.timestamp
+    .toLocaleString(DateTime.DATETIME_SHORT)
+    .replace(",", " |");
 });
 
 module.exports = mongoose.model("message", messageSchema);
