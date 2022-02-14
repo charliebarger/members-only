@@ -10,6 +10,10 @@ const messageSchema = new mongoose.Schema({
     type: String,
     required: "this field is required",
   },
+  body: {
+    type: String,
+    required: "this field is required",
+  },
   timestamp: {
     type: Date,
     default: Date.now,
