@@ -33,3 +33,16 @@ exports.validate = (req, res) => {
     check("messageBody", "body is required").notEmpty().isString().trim(),
   ];
 };
+
+exports.deleteMessage = async (req, res, next) => {
+  if (req.user.admin) {
+    try {
+      await messageDB.findByIdAndDelete(req.params.id);
+      res.redirect("/");
+    } catch (error) {
+      res.redirect("/");
+    }
+  } else {
+    next();
+  }
+};
