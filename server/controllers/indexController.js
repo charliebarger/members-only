@@ -7,8 +7,7 @@ exports.retrieveMessages = async (req, res, next) => {
       .find({})
       .sort({ timestamp: "desc" })
       .populate("user");
-
-    res.render("index", { msg: req.flash("msg"), posts: posts });
+    res.render("index", { msg: req.flash("msg"), posts });
   } catch (error) {
     console.log(error);
     next();
