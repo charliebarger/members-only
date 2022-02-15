@@ -8,7 +8,6 @@ a {
 }
 
 .avatar {
-  background: url("https://cdn.vox-cdn.com/thumbor/0ZX18M8vX6dpYC86WV-ZQaHv6RQ=/0x73:1100x806/920x613/filters:focal(0x73:1100x806):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/8270369/tv_eastbound_down01.0.jpg");
   border-radius: 1000px;
   position: absolute;
   border: white solid 2px;

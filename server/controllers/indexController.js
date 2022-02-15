@@ -1,5 +1,4 @@
 const messageDB = require("../models/messages");
-require("../models/database");
 
 exports.retrieveMessages = async (req, res, next) => {
   try {

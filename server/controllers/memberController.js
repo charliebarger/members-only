@@ -1,7 +1,6 @@
 const userDB = require("../models/users");
-require("../models/database");
 const ObjectId = require("mongodb").ObjectId;
-const { check, validationResult } = require("express-validator");
+const { check } = require("express-validator");
 
 //render member page
 exports.memberPage = (req, res, next) => {

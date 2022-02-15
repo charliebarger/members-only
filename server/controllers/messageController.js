@@ -1,5 +1,5 @@
 const messageDB = require("../models/messages");
-const { check, validationResult } = require("express-validator");
+const { check } = require("express-validator");
 
 //render message page
 exports.messagePage = (req, res, next) => {

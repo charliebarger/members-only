@@ -1,5 +1,5 @@
 const userDB = require("../models/users");
-const { check, validationResult } = require("express-validator");
+const { check } = require("express-validator");
 
 //create a new user
 exports.createUser = async (req, res, next) => {

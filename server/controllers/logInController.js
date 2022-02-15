@@ -1,8 +1,5 @@
-const bcrypt = require("bcrypt");
 const passport = require("passport");
-const userDB = require("../models/users");
-var LocalStrategy = require("passport-local").Strategy;
-const { check, validationResult } = require("express-validator");
+const { check } = require("express-validator");
 
 //authenticate
 exports.authenticate = (req, res) => {
