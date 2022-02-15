@@ -9,7 +9,6 @@ const session = require("express-session");
 const passport = require("passport");
 const MongoStore = require("connect-mongo");
 var indexRouter = require("./server/routes/index");
-var usersRouter = require("./server/routes/users");
 const adminRouter = require("./server/routes/admin");
 const memberRouter = require("./server/routes/member");
 const signUpRouter = require("./server/routes/sign-up");
@@ -54,7 +53,6 @@ app.use(function (req, res, next) {
 
 //routers
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
 app.use("/member", memberRouter);
 app.use("/sign-up", signUpRouter);
