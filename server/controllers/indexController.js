@@ -9,7 +9,6 @@ exports.retrieveMessages = async (req, res, next) => {
       .populate("user");
     res.render("index", { msg: req.flash("msg"), posts });
   } catch (error) {
-    console.log(error);
-    next();
+    next(error);
   }
 };

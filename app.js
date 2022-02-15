@@ -41,6 +41,7 @@ app.use(
 //passport set up
 app.use(passport.initialize());
 app.use(passport.session());
+require("./server/passport");
 
 //initilaize express-flash
 app.use(flash());

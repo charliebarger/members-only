@@ -1,12 +1,9 @@
 const userDB = require("../models/users");
 const { check, validationResult } = require("express-validator");
 
+//create a new user
 exports.createUser = async (req, res, next) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(422).jsonp(errors.array());
-    }
     const user = await userDB({
       username: req.body.username,
       avatarURL: req.body.imageUrl,
@@ -19,6 +16,7 @@ exports.createUser = async (req, res, next) => {
   }
 };
 
+//user validation
 exports.validate = (req, res) => {
   return [
     check("username", "username is required")
@@ -54,6 +52,7 @@ const randomAvatars = () => {
   return images[Math.floor(Math.random() * images.length)];
 };
 
+//checks to make sure the image url is valid, if not assigns a random avatar
 exports.checkUrl = (req, res, next) => {
   if (req.body.imageUrl == "") {
     req.body.imageUrl = randomAvatars();

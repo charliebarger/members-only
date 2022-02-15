@@ -1,22 +1,17 @@
 var express = require("express");
 var router = express.Router();
-const signIn = require("../controllers/sign-in");
-const passport = require("passport");
-/* GET users listing. */
+const logIn = require("../controllers/logInController");
+const validation = require("../controllers/validationController");
 
-router.get("/", function (req, res, next) {
-  if (req.isAuthenticated()) {
-    next();
-  } else {
-    res.render("log-in");
-  }
-});
+/* GET log in page. */
+router.get("/", logIn.logInPage);
 
+/* POST log in user */
 router.post(
   "/",
-  signIn.validate(),
-  signIn.checkValidation,
-  signIn.authenticate()
+  logIn.validate(),
+  validation.checkValidation,
+  logIn.authenticate()
 );
 
 module.exports = router;

@@ -1,15 +1,17 @@
 var express = require("express");
 var router = express.Router();
-const becomeAdmin = require("../controllers/becomeAdmin");
-/* GET home page. */
-router.get("/", function (req, res, next) {
-  if (req.isAuthenticated()) {
-    res.render("admin-log-in", { msg: req.flash("msg") });
-  } else {
-    next();
-  }
-});
+const becomeAdmin = require("../controllers/adminController");
+const validation = require("../controllers/validationController");
 
-router.post("/", becomeAdmin.validate(), becomeAdmin.updateAdminStatus);
+/* GET home page. */
+router.get("/", validation.isLoggedIn, becomeAdmin.adminPage);
+
+/* POST update admin status */
+router.post(
+  "/",
+  becomeAdmin.validate(),
+  validation.checkValidation,
+  becomeAdmin.updateAdminStatus
+);
 
 module.exports = router;

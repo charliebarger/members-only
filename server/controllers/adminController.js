@@ -5,10 +5,6 @@ const { check, validationResult } = require("express-validator");
 
 exports.updateAdminStatus = async (req, res, next) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(422).jsonp(errors.array());
-    }
     if (req.body.admin === process.env.adminPassword) {
       await userDB.findByIdAndUpdate(ObjectId(req.user._id), {
         $set: { admin: true },
@@ -20,10 +16,14 @@ exports.updateAdminStatus = async (req, res, next) => {
       res.redirect("/admin");
     }
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 };
 
 exports.validate = (req, res) => {
   return check("admin", "answer is required").notEmpty().isString();
+};
+
+exports.adminPage = (req, res, next) => {
+  res.render("admin-log-in", { msg: req.flash("msg") });
 };

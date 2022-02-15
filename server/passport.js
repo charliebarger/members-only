@@ -1,10 +1,9 @@
 const bcrypt = require("bcrypt");
-const res = require("express/lib/response");
 const passport = require("passport");
-const userDB = require("../models/users");
-require("../models/database");
+const userDB = require("./models/users");
 var LocalStrategy = require("passport-local").Strategy;
-const { check, validationResult } = require("express-validator");
+
+//add local strategy
 passport.use(
   new LocalStrategy((username, password, done) => {
     userDB.findOne({ username: username }, (err, user) => {
@@ -41,34 +40,3 @@ passport.deserializeUser(function (id, done) {
     done(err, user);
   });
 });
-
-//authenticate
-exports.authenticate = (req, res) => {
-  return passport.authenticate("local", {
-    failureFlash: true,
-    successFlash: {
-      type: "success",
-      message: "Successfully signed up.",
-    },
-    successRedirect: "/",
-    failureRedirect: "/log-in",
-  });
-};
-
-//validator
-exports.validate = (req, res) => {
-  return [
-    check("username", "username is required").notEmpty().isString(),
-    check("password", "password is required").notEmpty().isString(),
-  ];
-};
-
-//check validation
-
-exports.checkValidation = (req, res, next) => {
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(422).jsonp(errors.array());
-  }
-  next();
-};

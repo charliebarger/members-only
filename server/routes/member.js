@@ -1,16 +1,17 @@
 var express = require("express");
 var router = express.Router();
-const becomeMember = require("../controllers/becomeMember");
-/* GET users listing. */
-router.get("/", function (req, res, next) {
-  console.log("here");
-  if (req.isAuthenticated()) {
-    res.render("member-log-in", { msg: req.flash("msg") });
-  } else {
-    next();
-  }
-});
+const becomeMember = require("../controllers/memberController");
+const validation = require("../controllers/validationController");
 
-router.post("/", becomeMember.validate(), becomeMember.updateMembershipStatus);
+/* GET member page. */
+router.get("/", validation.isLoggedIn, becomeMember.memberPage);
+
+/* POST new member status. */
+router.post(
+  "/",
+  becomeMember.validate(),
+  validation.checkValidation,
+  becomeMember.updateMembershipStatus
+);
 
 module.exports = router;
