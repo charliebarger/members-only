@@ -1,12 +1,11 @@
 <%- include("include/_header") -%>
-    <div class="p-4" style="
+    <main class="p-4" style="
     min-height: calc(100vh - 56px);
     background: rgb(0,212,255);
     background: linear-gradient(
 -45deg
 , rgba(0,212,255,1) 2%, rgba(215,18,166,1) 80%);">
-        <div class="bg-light container p-4 rounded"
-            style="max-width: 400px;/* background: rgb(0,212,255); *//* background: linear-gradient(-45deg, rgba(0,212,255,1) 2%, rgba(215,18,166,1) 80%); */">
+        <div class="bg-light container p-4 rounded" style="max-width: 400px;">
             <h1>Sign Up</h1>
             <form method="post" action="/sign-up">
                 <div class="mb-3">
@@ -37,6 +36,6 @@
                 <button type="submit" class="btn btn-primary" id="submitSignIn">Submit</button>
             </form>
         </div>
-    </div>
+    </main>
     <script src="/javascripts/formValidation.js"></script>
     <%- include("include/_footer") -%>

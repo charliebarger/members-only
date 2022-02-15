@@ -1,24 +1,21 @@
 <%- include("include/_header") -%>
-    <div class="p-4" style="
+    <main class="p-4" style="
     min-height: calc(100vh - 56px);
     background: rgb(0,212,255);
     background: linear-gradient(
 -45deg
 , rgba(0,212,255,1) 2%, rgba(215,18,166,1) 80%);">
-        <div class="bg-light container p-4 rounded"
-            style="max-width: 400px;/* background: rgb(0,212,255); *//* background: linear-gradient(-45deg, rgba(0,212,255,1) 2%, rgba(215,18,166,1) 80%); */">
+        <div class="bg-light container p-4 rounded" style="max-width: 400px;">
             <h1>Log In</h1>
             <form method="post" action="/log-in">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input required class="form-control shadow-sm" name="username" id="exampleInputEmail1"
-                        aria-describedby="emailHelp">
+                    <label for="username" class="form-label">Username</label>
+                    <input required class="form-control shadow-sm" name="username" id="username">
                     <div id="emailHelp" class="form-text"></div>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" required class="form-control shadow-sm" name="password"
-                        id="exampleInputPassword1">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" required class="form-control shadow-sm" name="password" id="password">
                 </div>
                 <%if(messages.error){%>
                     <p class="text-danger">
@@ -28,5 +25,5 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-    </div>
+    </main>
     <%- include("include/_footer") -%>

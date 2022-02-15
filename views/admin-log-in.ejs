@@ -1,5 +1,5 @@
 <%- include("include/_header") -%>
-    <div class="p-4" style="
+    <main class="p-4" style="
     min-height: calc(100vh - 56px);
     background: rgb(0,212,255);
     background: linear-gradient(
@@ -23,9 +23,8 @@
                     </div>
                     <form action="/admin" method="post">
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input name="admin" required type="password" class="form-control shadow-sm"
-                                id="exampleInputPassword1">
+                            <label for="admin" class="form-label">Password</label>
+                            <input name="admin" required type="password class=" form-control shadow-sm" id="admin">
                         </div>
                         <%if(msg){%>
                             <p class="text-danger">
@@ -36,5 +35,5 @@
                     </form>
                     <%}%>
         </div>
-    </div>
+    </main>
     <%- include("include/_footer") -%>
