@@ -19,7 +19,6 @@ a {
 
 .avatar-wrapper {
   position: relative;
-  /* border: red solid 1px; */
   width: 100%;
   padding-bottom: 100%;
 }
@@ -71,6 +70,7 @@ a {
 }
 
 /* keyframes */
+
 @keyframes reveal {
   0% {
     filter: blur(4px);
