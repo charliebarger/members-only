@@ -29,8 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-//create session
-
+//create session with connect-mongo
 app.use(
   session({
     secret: process.env.SECRET,
@@ -40,10 +39,12 @@ app.use(
   })
 );
 
-//passport
+//passport set up
 app.use(passport.initialize());
-app.use(flash());
 app.use(passport.session());
+
+//initilaize express-flash
+app.use(flash());
 
 // add user to locals
 app.use(function (req, res, next) {
@@ -51,6 +52,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+//routers
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/admin", adminRouter);
@@ -59,6 +61,7 @@ app.use("/sign-up", signUpRouter);
 app.use("/log-in", logInRouter);
 app.use("/message", messageRouter);
 app.use("/log-out", logOutrouter);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
