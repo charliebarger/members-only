@@ -1,3 +1,4 @@
+//show secret member password on click (LOL)
 const hiddenWrapper = document.querySelectorAll(".hidden-text-wrapper");
 for (let i = 0; i < hiddenWrapper.length; i++) {
   hiddenWrapper[i].addEventListener("click", () => {
@@ -5,9 +6,8 @@ for (let i = 0; i < hiddenWrapper.length; i++) {
   });
 }
 
-//delete function
+//show pop up box when delete button is clicked
 deleteButtons = document.querySelectorAll(".delete");
-
 deleteButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
     const confirm = window.confirm(
