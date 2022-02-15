@@ -11,13 +11,14 @@
                 <div class="mb-3">
                     <label for="username-input" class="form-label">Username<span class="text-danger">*</span>
                     </label>
-                    <input class="form-control shadow-sm" type="text" name="username" id="username-input" required>
+                    <input class="form-control shadow-sm" type="text" name="username"
+                        value="<%=username ? username : ""%>" id="username-input" required>
                     <span class="text-danger py-2" id="username-error"></span>
                 </div>
                 <div class="mb-3">
                     <label for="imageUrl" class="form-label">Avatar Image URL</label>
-                    <input placeholder="example: https://picsum.photos/200" type="url" class="form-control shadow-sm"
-                        id="imageUrl" name="imageUrl">
+                    <input type="url" class="form-control shadow-sm" id="imageUrl" name="imageUrl"
+                        value="<%=url ? url : ""%>">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
@@ -30,6 +31,11 @@
                     <input type="password" class="form-control shadow-sm" name="confirmPassword" id=" confirm-password"
                         required>
                     <span class="text-danger py-2" id="password-error"></span>
+                    <%if(msg){%>
+                        <p class="text-danger my-2">
+                            <%=msg%>
+                        </p>
+                        <%}%>
                 </div>
                 <div class="pb-3"><span class="text-danger">*</span>Required field</div>
                 <a href="/log-in" class="d-block pb-3 text-decoration-none" href="">Already have an Acount? Sign In</a>
@@ -37,5 +43,5 @@
             </form>
         </div>
     </main>
-    <script src="/javascripts/formValidation.js"></script>
+    <script src="/javascripts/signUpFormValidation.js"></script>
     <%- include("include/_footer") -%>
