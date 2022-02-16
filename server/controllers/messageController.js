@@ -24,8 +24,16 @@ exports.createMessage = async (req, res, next) => {
 //validate messages
 exports.validate = () => {
   return [
-    check("messageHeader", "title is required").notEmpty().isString().trim(),
-    check("messageBody", "body is required").notEmpty().isString().trim(),
+    check("messageHeader", "title is required")
+      .notEmpty()
+      .isString()
+      .isLength({ max: 25 })
+      .trim(),
+    check("messageBody", "body is required")
+      .notEmpty()
+      .isString()
+      .isLength({ max: 140 })
+      .trim(),
   ];
 };
 

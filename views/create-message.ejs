@@ -10,13 +10,14 @@
             <form method="post" action="message">
                 <div class="mb-3">
                     <label for="messageHeader" class="form-label">Title</label>
-                    <input required class="form-control shadow-sm" name="messageHeader" id="messageHeader">
+                    <input maxlength="25" required class="form-control shadow-sm" name="messageHeader"
+                        id="messageHeader">
                     <div class="form-text"></div>
                 </div>
                 <div class="mb-3">
                     <label for="messageBody" class="form-label">Message</label>
-                    <textarea required placeholder="Enter A Message" class="form-control" name="messageBody"
-                        id="messageBody" rows="7" id="message-body"></textarea>
+                    <textarea maxlength="140" required placeholder="Enter A Message" class="form-control"
+                        name="messageBody" id="messageBody" rows="7" id="message-body"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
