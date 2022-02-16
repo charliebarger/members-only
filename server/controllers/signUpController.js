@@ -92,7 +92,8 @@ exports.validate = (req, res) => {
       .notEmpty()
       .isString()
       .isLength({ min: 5, max: 20 })
-      .trim(),
+      .trim()
+      .toLowerCase(),
     check("imageUrl").exists().isString().trim(),
     check("password", "password is required")
       .notEmpty()

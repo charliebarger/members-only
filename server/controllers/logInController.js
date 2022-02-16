@@ -17,7 +17,11 @@ exports.authenticate = (req, res) => {
 //validator
 exports.validate = () => {
   return [
-    check("username", "username is required").notEmpty().isString(),
+    check("username", "username is required")
+      .notEmpty()
+      .isString()
+      .trim()
+      .toLowerCase(),
     check("password", "password is required").notEmpty().isString(),
   ];
 };
