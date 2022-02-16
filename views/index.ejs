@@ -69,12 +69,20 @@
                                 <h5 class="card-title fs-3 py-2 text-sm-start">
                                   <%=post.title%>
                                 </h5>
-                                <%if(locals.user.admin){%>
-                                  <a class="ms-auto delete" href=<%=`/message/delete/${post._id}` %>
-                                    >
-                                    <i class="far fa-trash-alt fs-5 p-2 text-danger" style="cursor: pointer;"></i>
-                                  </a>
-                                  <%}%>
+                                <div class="ms-auto d-flex align-items-center">
+                                  <%if(post.user.admin){%>
+                                    <div class="d-flex align-items-start gap-2">
+                                      <i class="fab fa-keycdn text-warning fs-5"></i>
+                                      <span class="text-warning">Admin</span>
+                                    </div>
+                                    <%}%>
+                                      <%if(locals.user.admin){%>
+                                        <a class=" delete" href=<%=`/message/delete/${post._id}` %>
+                                          >
+                                          <i class="far fa-trash-alt fs-5 p-2 text-danger" style="cursor: pointer;"></i>
+                                        </a>
+                                        <%}%>
+                                </div>
                               </div>
                               <div>
                                 <p class="card-text mb-4 <%=locals.user ? messages.success ? " reveal" : "show"
