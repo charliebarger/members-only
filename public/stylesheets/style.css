@@ -56,6 +56,10 @@ a {
   animation: reveal 2s ease-in-out forwards;
 }
 
+.avatar.finished {
+  animation: none;
+}
+
 .round-img-wrapper {
   height: 50px;
   width: 50px;

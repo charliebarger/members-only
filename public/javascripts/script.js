@@ -18,3 +18,18 @@ deleteButtons.forEach((button) => {
     }
   });
 });
+
+//remove reveal class and add show to avatars after animation ends. This prevents reanimation on display type change
+
+function removeAnimationClass(imgNodeList) {
+  imgNodeList.forEach((imgNode) => {
+    imgNode.addEventListener("animationend", () => {
+      imgNode.classList.replace("reveal", "show");
+    });
+  });
+}
+
+bigAvatarImgs = document.querySelectorAll(".avatar.big");
+smallAvatarImgs = document.querySelectorAll(".avatar.small");
+removeAnimationClass(bigAvatarImgs);
+removeAnimationClass(smallAvatarImgs);
