@@ -76,12 +76,17 @@
                                       <span class="text-warning">Admin</span>
                                     </div>
                                     <%}%>
-                                      <%if(locals.user.admin){%>
-                                        <a class=" delete" href=<%=`/message/delete/${post._id}` %>
-                                          >
-                                          <i class="far fa-trash-alt fs-5 p-2 text-danger" style="cursor: pointer;"></i>
-                                        </a>
+                                      <%if(post.pinned==true ){%>
+                                        <i class="fa-solid fs-5 text-white
+                                        fa-thumbtack"></i>
                                         <%}%>
+                                          <%if(locals.user.admin){%>
+                                            <a class=" delete" href=<%=`/message/delete/${post._id}` %>
+                                              >
+                                              <i class="far fa-trash-alt fs-5 p-2 text-danger"
+                                                style="cursor: pointer;"></i>
+                                            </a>
+                                            <%}%>
                                 </div>
                               </div>
                               <div>

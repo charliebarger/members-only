@@ -19,6 +19,11 @@ const messageSchema = new mongoose.Schema({
     default: Date.now,
     required: "this field is required",
   },
+  pinned: {
+    type: Boolean,
+    default: false,
+    required: "this field is required",
+  },
 });
 
 messageSchema.virtual("date").get(function () {
