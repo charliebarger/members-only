@@ -23,8 +23,9 @@ const checkPasswordLength = async (req, res, next) => {
     // await req.flash("username", req.body.username);
     // await req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
+  } else {
+    next();
   }
-  next();
 };
 
 const checkUsernameLength = async (req, res, next) => {
@@ -32,8 +33,9 @@ const checkUsernameLength = async (req, res, next) => {
     await req.flash("msg", "Username must be between 5 and 20 characters");
     // await req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
+  } else {
+    next();
   }
-  next();
 };
 
 const checkConfirmPassword = async (req, res, next) => {
@@ -42,16 +44,18 @@ const checkConfirmPassword = async (req, res, next) => {
     // await req.flash("msg", "Passwords do not match");
     // await req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
+  } else {
+    next();
   }
-  next();
 };
 
 //checks to make sure the image url is valid, if not assigns a random avatar
 const checkUrl = (req, res, next) => {
   if (req.body.imageUrl == "") {
     req.body.imageUrl = randomAvatars();
+  } else {
+    next();
   }
-  next();
 };
 
 const checkImg = async (req, res, next) => {
