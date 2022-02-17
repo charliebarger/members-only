@@ -28,7 +28,6 @@
     "passport": "^0.5.2",
     "passport-local": "^1.0.0"
   },
-  "main": "app.js",
   "keywords": [],
   "author": "Charles Barger",
   "license": "MIT",
