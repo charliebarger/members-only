@@ -10,8 +10,10 @@ const checkUsernameAvailability = async (req, res, next) => {
       req.flash("msg", "Username is Not Available");
       req.flash("url", req.body.imageUrl);
       res.redirect("/sign-up");
+    } else {
+      console.log("here 1");
+      next();
     }
-    next();
   } catch (error) {
     next(error);
   }
@@ -24,6 +26,7 @@ const checkPasswordLength = async (req, res, next) => {
     req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
   } else {
+    console.log("here 2");
     next();
   }
 };
@@ -34,6 +37,7 @@ const checkUsernameLength = async (req, res, next) => {
     req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
   } else {
+    console.log("here 3");
     next();
   }
 };
@@ -45,6 +49,7 @@ const checkConfirmPassword = async (req, res, next) => {
     req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
   } else {
+    console.log("here 4");
     next();
   }
 };
@@ -53,9 +58,8 @@ const checkConfirmPassword = async (req, res, next) => {
 const checkUrl = (req, res, next) => {
   if (req.body.imageUrl == "") {
     req.body.imageUrl = randomAvatars();
-  } else {
-    next();
   }
+  next();
 };
 
 const checkImg = async (req, res, next) => {
