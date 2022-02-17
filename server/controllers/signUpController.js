@@ -18,8 +18,8 @@ const checkUsernameAvailability = async (req, res, next) => {
 };
 
 const checkPasswordLength = async (req, res, next) => {
-  if (req.body.password.length > 20 || req.body.password.length < 5) {
-    req.flash("msg", "Password must be between 5 and 20 characters");
+  if (req.body.password.length < 5) {
+    req.flash("msg", "Password must be more than 5 characters");
     req.flash("username", req.body.username);
     req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
