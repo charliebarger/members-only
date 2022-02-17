@@ -4,7 +4,7 @@ const { check } = require("express-validator");
 
 exports.updateAdminStatus = async (req, res, next) => {
   try {
-    if (req.body.admin === process.env.adminPassword) {
+    if (req.body.admin === process.env.ADMIN_PASSWORD) {
       await userDB.findByIdAndUpdate(ObjectId(req.user._id), {
         $set: { admin: true },
       });

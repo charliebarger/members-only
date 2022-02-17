@@ -9,7 +9,7 @@ exports.memberPage = (req, res, next) => {
 
 exports.updateMembershipStatus = async (req, res, next) => {
   try {
-    if (req.body.member === process.env.memberPassword) {
+    if (req.body.member === process.env.MEMBER_PASSWORD) {
       await userDB.findByIdAndUpdate(ObjectId(req.user._id), {
         $set: { member: true },
       });
