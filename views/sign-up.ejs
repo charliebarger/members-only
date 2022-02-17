@@ -11,7 +11,7 @@
                 <div class="mb-3">
                     <label for="username-input" class="form-label">Username<span class="text-danger">*</span>
                     </label>
-                    <input class="form-control shadow-sm" type="text" name="username"
+                    <input minlength="5" maxlength="20" class="form-control shadow-sm" type="text" name="username"
                         value="<%=username ? username : ""%>" id="username-input" required>
                     <span class="text-danger py-2" id="username-error"></span>
                 </div>
