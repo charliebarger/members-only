@@ -16,9 +16,10 @@
                     <span class="text-danger py-2" id="username-error"></span>
                 </div>
                 <div class="mb-3">
-                    <label for="imageUrl" class="form-label">Avatar Image URL</label>
-                    <input type="url" class="form-control shadow-sm" id="imageUrl" name="imageUrl"
-                        value="<%=url ? url : ""%>">
+                    <label for="imageUrl" class="form-label">Avatar Image URL
+                    </label>
+                    <input type="url" placeholder="Leave Blank for Random Avatar" class="form-control shadow-sm"
+                        id="imageUrl" name="imageUrl" value="<%=url ? url : ""%>">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
