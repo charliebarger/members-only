@@ -34,7 +34,7 @@ app.use(
     secret: process.env.SECRET,
     resave: true,
     saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+    // store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
   })
 );
 
