@@ -8,7 +8,7 @@ const checkUsernameAvailability = async (req, res, next) => {
     });
     if (usernameUnavailable) {
       req.flash("msg", "Username is Not Available");
-      // await req.flash("url", req.body.imageUrl);
+      req.flash("url", req.body.imageUrl);
       res.redirect("/sign-up");
     }
     next();
@@ -19,9 +19,9 @@ const checkUsernameAvailability = async (req, res, next) => {
 
 const checkPasswordLength = async (req, res, next) => {
   if (req.body.password.length > 20 || req.body.password.length < 5) {
-    await req.flash("msg", "Password must be between 5 and 20 characters");
-    // await req.flash("username", req.body.username);
-    // await req.flash("url", req.body.imageUrl);
+    req.flash("msg", "Password must be between 5 and 20 characters");
+    req.flash("username", req.body.username);
+    req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
   } else {
     next();
@@ -30,8 +30,8 @@ const checkPasswordLength = async (req, res, next) => {
 
 const checkUsernameLength = async (req, res, next) => {
   if (req.body.username.length > 20 || req.body.username.length < 5) {
-    await req.flash("msg", "Username must be between 5 and 20 characters");
-    // await req.flash("url", req.body.imageUrl);
+    req.flash("msg", "Username must be between 5 and 20 characters");
+    req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
   } else {
     next();
@@ -40,9 +40,9 @@ const checkUsernameLength = async (req, res, next) => {
 
 const checkConfirmPassword = async (req, res, next) => {
   if (req.body.password != req.body.confirmPassword) {
-    await req.flash("username", req.body.username);
-    // await req.flash("msg", "Passwords do not match");
-    // await req.flash("url", req.body.imageUrl);
+    req.flash("username", req.body.username);
+    req.flash("msg", "Passwords do not match");
+    req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
   } else {
     next();
@@ -63,8 +63,8 @@ const checkImg = async (req, res, next) => {
   if (image) {
     next();
   } else {
-    await req.flash("username", req.body.username);
-    // await req.flash("msg", "Image URL is not valid");
+    req.flash("username", req.body.username);
+    req.flash("msg", "Image URL is not valid");
     res.redirect("/sign-up");
   }
 };
