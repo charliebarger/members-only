@@ -50,7 +50,7 @@ const checkUrl = (req, res, next) => {
   next();
 };
 
-const checkImg = (req, res, next) => {
+const checkImg = async (req, res, next) => {
   const image = req.body.imageUrl.match(/(jpeg|jpg|gif|png)/) != null;
   if (image) {
     next();
