@@ -2,22 +2,26 @@ const userDB = require("../models/users");
 const { check } = require("express-validator");
 
 const checkUsernameAvailability = async (req, res, next) => {
-  const usernameUnavailable = await userDB.exists({
-    username: req.body.username,
-  });
-  if (usernameUnavailable) {
-    await req.flash("msg", "Username is Not Available");
-    await req.flash("url", req.body.imageUrl);
-    res.redirect("/sign-up");
+  try {
+    const usernameUnavailable = await userDB.exists({
+      username: req.body.username,
+    });
+    if (usernameUnavailable) {
+      req.flash("msg", "Username is Not Available");
+      // await req.flash("url", req.body.imageUrl);
+      res.redirect("/sign-up");
+    }
+    next();
+  } catch (error) {
+    next(error);
   }
-  next();
 };
 
 const checkPasswordLength = async (req, res, next) => {
   if (req.body.password.length > 20 || req.body.password.length < 5) {
     await req.flash("msg", "Password must be between 5 and 20 characters");
-    await req.flash("username", req.body.username);
-    await req.flash("url", req.body.imageUrl);
+    // await req.flash("username", req.body.username);
+    // await req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
   }
   next();
@@ -26,7 +30,7 @@ const checkPasswordLength = async (req, res, next) => {
 const checkUsernameLength = async (req, res, next) => {
   if (req.body.username.length > 20 || req.body.username.length < 5) {
     await req.flash("msg", "Username must be between 5 and 20 characters");
-    await req.flash("url", req.body.imageUrl);
+    // await req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
   }
   next();
@@ -35,8 +39,8 @@ const checkUsernameLength = async (req, res, next) => {
 const checkConfirmPassword = async (req, res, next) => {
   if (req.body.password != req.body.confirmPassword) {
     await req.flash("username", req.body.username);
-    await req.flash("msg", "Passwords do not match");
-    await req.flash("url", req.body.imageUrl);
+    // await req.flash("msg", "Passwords do not match");
+    // await req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
   }
   next();
@@ -56,7 +60,7 @@ const checkImg = async (req, res, next) => {
     next();
   } else {
     await req.flash("username", req.body.username);
-    await req.flash("msg", "Image URL is not valid");
+    // await req.flash("msg", "Image URL is not valid");
     res.redirect("/sign-up");
   }
 };
