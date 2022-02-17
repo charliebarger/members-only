@@ -6,8 +6,8 @@ const checkUsernameAvailability = async (req, res, next) => {
     username: req.body.username,
   });
   if (usernameUnavailable) {
-    req.flash("msg", "Username is Not Available");
-    req.flash("url", req.body.imageUrl);
+    await req.flash("msg", "Username is Not Available");
+    await req.flash("url", req.body.imageUrl);
     res.redirect("/sign-up");
   }
   next();
