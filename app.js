@@ -1,9 +1,9 @@
+require("dotenv").config();
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-require("dotenv").config();
 require("./server/models/database");
 const session = require("express-session");
 const passport = require("passport");
@@ -34,7 +34,7 @@ app.use(
     secret: process.env.SECRET,
     resave: true,
     saveUninitialized: true,
-    // store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
   })
 );
 
