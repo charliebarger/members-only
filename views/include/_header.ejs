@@ -43,33 +43,37 @@
                             <a href="/sign-up" class="btn btn-warning">Sign-up</a>
                         </li>
                         <%}else {%>
-                            <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
-                                <a href="/message" class="text-decoration-none text-white 
+                            <%if(locals.user.member){%>
+                                <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
+                                    <a href="/message" class="text-decoration-none text-white 
                     d-flex align-items-center">
-                                    <i class="fas fa-envelope text-success fs-5"></i>
-                                    <span class="ms-2">Create Message</span>
-                                </a>
-                            </li>
-                            <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
-                                <a href="member" class="text-decoration-none text-white d-flex align-items-center">
-                                    <i class="fas fa-heart fs-5 text-danger"></i>
-                                    <span class="ms-2">
-                                        <%= locals.user.member ? "" : "Become " %>Member
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
-                                <a href="admin" class="text-decoration-none text-white d-flex align-items-center">
-                                    <i class="fab fa-keycdn text-warning fs-5"></i>
-                                    <span class="ms-2">
-                                        <%= locals.user.admin ? "" : "Become " %>Admin
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="nav-item my-2 my-lg-0 text-light">
-                                <a href="/log-out" class="btn btn-warning">Sign-Out</a>
-                            </li>
-                            <%}%>
+                                        <i class="fas fa-envelope text-success fs-5"></i>
+                                        <span class="ms-2">Create Message</span>
+                                    </a>
+                                </li>
+                                <%}%>
+                                    <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
+                                        <a href="member"
+                                            class="text-decoration-none text-white d-flex align-items-center">
+                                            <i class="fas fa-heart fs-5 text-danger"></i>
+                                            <span class="ms-2">
+                                                <%= locals.user.member ? "" : "Become " %>Member
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item my-2 my-lg-0 d-flex align-items-center mx-0 mx-lg-3">
+                                        <a href="admin"
+                                            class="text-decoration-none text-white d-flex align-items-center">
+                                            <i class="fab fa-keycdn text-warning fs-5"></i>
+                                            <span class="ms-2">
+                                                <%= locals.user.admin ? "" : "Become " %>Admin
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item my-2 my-lg-0 text-light">
+                                        <a href="/log-out" class="btn btn-warning">Sign-Out</a>
+                                    </li>
+                                    <%}%>
                 </ul>
             </div>
             </div>
