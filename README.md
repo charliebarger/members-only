@@ -6,7 +6,7 @@
 
 Message board that changes from a hardware store into an exclusive online speakeasy after the user logs in. Users unlock different privileges when they sign up, become a member, annd become an admin. 
 
-> See it Live at [https://charliebarger.github.io/Dev-Spot-Client1/](https://charliebarger.github.io/Dev-Spot-Client1/)
+> See it Live at [https://morning-thicket-24228.herokuapp.com/message](https://morning-thicket-24228.herokuapp.com/message)
 
 ## Demo
 
