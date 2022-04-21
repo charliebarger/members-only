@@ -10,7 +10,7 @@ Message board that changes from a hardware store into an exclusive online speake
 
 ## Demo
 
-![dev-spot](https://user-images.githubusercontent.com/72449213/164544004-d346bf17-01eb-459d-8f3d-d6e2ea6ec76a.gif)
+![2022-04-21 15 52 06](https://user-images.githubusercontent.com/72449213/164558113-3cab3731-c8e7-4d44-89a9-09f49a092aaf.gif)
 
 ## Notable Features
 
