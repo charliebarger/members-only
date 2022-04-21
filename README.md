@@ -24,5 +24,6 @@ Message board that changes from a hardware store into an exclusive online speake
 - Node
 - Bootstrap
 - MongoDB
+- Mongoose
 - Passport.js
 - EJS
